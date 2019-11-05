@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'apple.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangogirls',
+        'NAME': 'manitto_apple',
         'USER': 'name',
         'PASSWORD': '',
         'HOST': 'localhost',
