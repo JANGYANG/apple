@@ -1,1 +1,1 @@
-default_app_config = 'manitto.apps.ManittoConfig'
+# default_app_config = 'manitto.apps.ManittoConfig'

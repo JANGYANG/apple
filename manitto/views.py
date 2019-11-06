@@ -21,3 +21,22 @@ def result(request):
         return render(request, 'manitto/okgo.html')
     else:
         return render(request, 'manitto/fail.html')
+
+def reset(request):
+
+    return render(request,'manitto/reset.html')
+
+def reset_result(request):
+    print(request.POST.get('password'))
+    if request.POST.get('password') == "qowjddbs":
+        print('success')
+
+        from manitto.shuffle import shuffle
+        shuffle()
+
+        return render(request, 'manitto/reset_result.html')
+    else:
+        print('fail')
+        return render(request, 'manitto/fail.html')
+
+    

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>방장만 권한이 있는 페이지 입니다.</h1>
+    <form action="/reset_result" method="post">
+        {% csrf_token %} 
+        <input type="password" name="password">
+        <input type="submit" value="마니또를 섞자" text="마니또를 섞자">
+    </form>
+    <a href="/">
+        <button>
+            돌아가기
+        </button>
+    </a>
+</body>
+</html>
+
+
