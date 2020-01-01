@@ -40,6 +40,10 @@ def reset_result(request):
         return render(request, 'manitto/fail.html')
 
 def edit(request):
+    print('success')
+    # apples = Apple.objects.all()
+    # return render(request, 'manitto/edit.html', {'manittos' : apples})
+
     if request.POST.get('password') == "qowjddbs":
         print('success')
         apples = Apple.objects.all()
@@ -49,9 +53,23 @@ def edit(request):
         return render(request, 'manitto/fail.html')
 
 def edit_submit(request):
-    print(request.POST.dict())
+    from manitto.models import Apple
 
+    Apple.objects.all().delete()
+
+    print(request.POST.dict())
+    print(request.POST)
     for i in request.POST.dict():
         print(i)
+        if 'name' in i:
+            a = Apple(name = request.POST.get(i))
+            continue
+        elif 'pwd' in i:
+            a.phone = request.POST.get(i)
+            a.save()
+            continue
+    
+    from manitto.shuffle import shuffle
+    shuffle()
 
-    return render(request, 'manitto/fail.html')
+    return render(request, 'manitto/index.html')
