@@ -3,10 +3,13 @@ from manitto.models import Apple
 
 class Sms:
     def __init__(self):
+        
+        from manitto.aws_key import key_id, access_key
+
         self.sender = boto3.client(
             "sns",
-            aws_access_key_id="AKIAY7EBN7YWAXZZTZRQ",
-            aws_secret_access_key="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",
+            aws_access_key_id= key_id,
+            aws_secret_access_key= access_key,
             region_name="ap-northeast-1" # 도쿄
         )
 

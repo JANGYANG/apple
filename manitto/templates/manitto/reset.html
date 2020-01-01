@@ -14,6 +14,11 @@
         <input type="password" name="password">
         <input type="submit" value="마니또를 섞자" text="마니또를 섞자">
     </form>
+    <form action="/edit" method="post">
+        {% csrf_token %} 
+        <input type="password" name="password">
+        <input type="submit" value="마니또 명단 수정" text="마니또 명단 수정">
+    </form>
     <a href="/">
         <button>
             돌아가기

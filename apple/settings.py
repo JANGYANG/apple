@@ -23,13 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'e0h#nadkggio#s8of9b!zxwor08w4$!)t2s+o1u(*ooxi@e2cl'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
-
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -74,32 +67,8 @@ TEMPLATES = [
 # WSGI_APPLICATION = 'wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# DATABASES = { 
-#     'default': { 
-#         'ENGINE': 'django.db.backends.sqlite3', 
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'), 
-#     } 
-# }
-
-DATABASES = { 
-    'default': 
-    { 'ENGINE': 'django.db.backends.postgresql', 
-    'NAME': 'manitto_apple', 
-    'USER': 'jyct', 
-    'PASSWORD': 'abcd', 
-    'HOST': '127.0.0.1', 
-    'PORT': '5432', 
-    } }
+from apple.publishing_settings import *
+# from apple.local_settings import *
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

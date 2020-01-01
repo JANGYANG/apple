@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <div style="text-align: center;">
+        <h1>마니또 명단</h1>
+        <p>핸드폰 번호는 +82를 붙여주세요!</p>
+    <form action="/edit_submit" method="post">
+        {% csrf_token %}
+        <table style="border: 1px solid #bcbcbc; margin:auto;">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>연락처</th>
+                </tr>
+            </thead>
+            <tbody id="list">
+                {% for m in manittos %}
+                <tr class="{{forloop.counter}}">
+                    <td><input type="text" name="{{forloop.counter}}_name" value="{{m.name}}"></input></td>
+                    <td><input type="text" name="{{forloop.counter}}_pwd" value="{{m.phone}}"></input></td>
+                    <td>
+                        <button type="button" value="{{forloop.counter}}" onclick="remove(this)">삭제</button>
+                    </td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <button type="button" onclick="add(this)">추가</button>
+                    </td>
+                </tr>
+            </tfoot>
+            
+        </table>
+        <hr>
+        <button>수정</button>
+    </form>
+    </div>
+</body>
+<script>
+function remove(a) {
+    var elem = document.getElementsByClassName(a.value)[0];
+    elem.remove();
+    return false;
+}
+
+function add(t){
+    l = document.getElementById("list");
+    if(l.lastElementChild == null){
+        id = 1;
+    }else{
+        id = parseInt(l.lastElementChild.className) + 1;
+    }
+    
+    newRow = l.insertRow();
+    newRow.className = id;
+    newCell1 = newRow.insertCell(0);
+    newCell2 = newRow.insertCell(1);
+    newCell3 = newRow.insertCell(2);
+    newCell1.innerHTML = "<input type=\"text\" name=\"" + id + "_name\" value=\"\"></input>";
+    newCell2.innerHTML = "<input type=\"text\" name=\"" + id + "_pwd\" value=\"\"></input>";
+    newCell3.innerHTML = "<button value=\"" + id + "\" onclick=\"remove(this)\">삭제</button>";
+    return false;
+}
+</script>
+</html>

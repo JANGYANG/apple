@@ -39,4 +39,19 @@ def reset_result(request):
         print('fail')
         return render(request, 'manitto/fail.html')
 
-    
+def edit(request):
+    if request.POST.get('password') == "qowjddbs":
+        print('success')
+        apples = Apple.objects.all()
+        return render(request, 'manitto/edit.html', {'manittos' : apples})
+    else:
+        print('fail')
+        return render(request, 'manitto/fail.html')
+
+def edit_submit(request):
+    print(request.POST.dict())
+
+    for i in request.POST.dict():
+        print(i)
+
+    return render(request, 'manitto/fail.html')
